@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
   webpage:
     container_name: webpage
@@ -27,3 +28,34 @@ networks:
     driver: bridge
     name: studenyt-list-networks
     
+=======
+services:
+  webpage:
+    container_name: webpage
+    image: php:apache
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    ports:
+      - 80:80
+    networks:
+      - student-list-networks
+    depends_on:
+      - api
+    volumes:
+      - ./website:/var/www/html
+  api:
+     container_name: api
+     image: api:v1.0
+     ports:
+       - 5000
+     volumes:
+       - ./simple_api/student_age.json:/data/student_age.json
+     networks:
+       - student-list-networks
+networks:
+   student-list-networks:
+    driver: bridge
+    name: studenyt-list-networks
+    
+>>>>>>> 9a4b3ac (new)

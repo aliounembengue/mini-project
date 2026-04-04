@@ -163,4 +163,8 @@ then
     echo -e "Everything is Good, minikube is ready. \nFor this Stack, you will use $(ip -f inet addr show enp0s8 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p') IP Address"
 else
     echo "Error, your minikube server (Kubernetes) is not running"
+<<<<<<< HEAD
 fi
+=======
+fi
+>>>>>>> 9a4b3ac (new)

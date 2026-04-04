@@ -1,6 +1,5 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-<<<<<<< HEAD
 
 # To enable zsh, please set ENABLE_ZSH env var to "true" before launching vagrant up 
 #   + On windows => $env:ENABLE_ZSH="true"
@@ -8,25 +7,16 @@
 
 Vagrant.configure("2") do |config|
 
-=======
-
-Vagrant.configure("2") do |config|
-
   # Timeout global
   config.vm.boot_timeout = 600
 
->>>>>>> 9a4b3ac (new)
   # ------------------------------
   # Docker VM
   # ------------------------------
   config.vm.define "docker" do |docker|
     docker.vm.box = "eazytrainingfr/centos7"
     docker.vm.box_version = "1.0"
-<<<<<<< HEAD
-    docker.vm.network "private_network", type: "static", ip: "192.168.56.10"
-=======
     docker.vm.network "private_network", ip: "192.168.56.10"
->>>>>>> 9a4b3ac (new)
     docker.vm.hostname = "docker"
 
     docker.vm.provider "virtualbox" do |v|
@@ -41,43 +31,23 @@ Vagrant.configure("2") do |config|
     end
   end
 
-
   # ------------------------------
   # Minikube VM
   # ------------------------------
   config.vm.define "minikube" do |minikube|
-
-<<<<<<< HEAD
-    minikube.vm.box = "eazytrainingfr/centos7"
-    # minikube.vm.box = "generic/centos9s"
-
-    minikube.vm.network "private_network", type: "dhcp"
-=======
-    # Je recommande cette box plus stable
     minikube.vm.box = "generic/centos7"
-
     minikube.vm.network "private_network", ip: "192.168.56.15"
->>>>>>> 9a4b3ac (new)
     minikube.vm.hostname = "minikube"
 
     minikube.vm.provider "virtualbox" do |v|
       v.name = "minikube"
-<<<<<<< HEAD
-      v.memory = 4096
-=======
       v.memory = 3072
->>>>>>> 9a4b3ac (new)
       v.cpus = 2
     end
 
     minikube.vm.provision "shell",
       path: "install_minikube.sh",
       env: { 'ENABLE_ZSH' => ENV['ENABLE_ZSH'] }
-
   end
 
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 9a4b3ac (new)
